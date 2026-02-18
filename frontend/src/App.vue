@@ -7,7 +7,7 @@
           <span>AI 智能客服</span>
         </div>
         <el-menu
-          :default-active="$route.path"
+          :default-active="activeIndex"
           class="nav-menu"
           mode="horizontal"
           router
@@ -32,6 +32,14 @@
     </el-container>
   </div>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const activeIndex = computed(() => route.path)
+</script>
 
 <style>
 * {
